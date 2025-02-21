@@ -41,6 +41,10 @@ vec3 g_beastPos = vec3(2.0f, 0.0f, 0.0f);
 float g_beastRotation = 0.0f;
 AIMesh* g_planetMesh = nullptr;
 
+AIMesh* g_duckMesh = nullptr;
+vec3 g_duckPos = vec3(5.0f, 0.0f, 0.0f);
+float g_duckRotation = 0.0f;
+
 int g_showing = 0;
 int g_NumExamples = 3;
 
@@ -149,6 +153,10 @@ int main()
 		g_planetMesh->addTexture(string("Assets\\Textures\\Hodges_G_MountainRock1.jpg"), FIF_JPEG);
 	}
 
+	g_duckMesh = new AIMesh(string("Assets\\duck\\rubber_duck_toy_4k.obj"));
+	if (g_duckMesh) {
+		g_duckMesh->addTexture(string("Assets\\duck\\rubber_duck_toy_diff_4k.jpg"), FIF_JPEG);
+	}
 	//
 	//Set up Scene class
 	//
@@ -241,6 +249,7 @@ void renderScene()
 		glUniform3fv(pLocation, 1, (GLfloat*)&g_DLcolour);
 		Helper::SetUniformLocation(g_texDirLightShader, "DIRAmb", &pLocation);
 		glUniform3fv(pLocation, 1, (GLfloat*)&g_DLambient);
+
 		if (g_creatureMesh) {
 
 			// Setup transforms
@@ -261,6 +270,17 @@ void renderScene()
 
 			g_planetMesh->setupTextures();
 			g_planetMesh->render();
+		}
+
+		if (g_duckMesh) {
+
+			// Setup transforms
+			Helper::SetUniformLocation(g_texDirLightShader, "modelMatrix", &pLocation);
+			mat4 modelTransform = glm::translate(identity<mat4>(), g_duckPos) * eulerAngleY<float>(glm::radians<float>(g_duckRotation));
+			glUniformMatrix4fv(pLocation, 1, GL_FALSE, (GLfloat*)&modelTransform);
+
+			g_duckMesh->setupTextures();
+			g_duckMesh->render();
 		}
 	}
 	break;
