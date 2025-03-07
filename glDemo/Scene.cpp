@@ -339,3 +339,8 @@ void Scene::Init()
 		(*it)->Init(this);
 	}
 }
+
+void Scene::setupCamera()
+{
+
+}

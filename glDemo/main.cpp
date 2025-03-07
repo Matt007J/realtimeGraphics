@@ -11,6 +11,7 @@
 #include "Scene.h"
 
 
+
 using namespace std;
 using namespace glm;
 
@@ -357,24 +358,23 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 		case GLFW_KEY_SPACE:
 			g_showing++;
 			g_showing = g_showing % g_NumExamples;
-			break;
 
-		
-		/**
-		case GLFW_KEY_K:
-			// Cycle through the cameras
-			g_mainCamera++;
-			if (g_mainCamera >=  ) {
-				g_mainCamera = 0;  
-			}
-			*/
-		    
+			/**
+case GLFW_KEY_K:
+	// Cycle through the cameras
+	g_mainCamera++;
+	if (g_mainCamera >=  ) {
+		g_mainCamera = 0;
+	}
+	*/
+
+
 		default:
 		{
 		}
 		}
 	}
-	else if (_action == GLFW_RELEASE) 
+	else if (_action == GLFW_RELEASE)
 	{
 		// handle key release events
 		switch (_key)
@@ -387,7 +387,7 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 }
 
 
-void mouseMoveHandler(GLFWwindow* _window, double _xpos, double _ypos) 
+void mouseMoveHandler(GLFWwindow* _window, double _xpos, double _ypos)
 {
 	if (g_mouseDown) {
 
@@ -404,16 +404,16 @@ void mouseMoveHandler(GLFWwindow* _window, double _xpos, double _ypos)
 	}
 }
 
-void mouseButtonHandler(GLFWwindow* _window, int _button, int _action, int _mods) 
+void mouseButtonHandler(GLFWwindow* _window, int _button, int _action, int _mods)
 {
-	if (_button == GLFW_MOUSE_BUTTON_LEFT) 
+	if (_button == GLFW_MOUSE_BUTTON_LEFT)
 	{
-		if (_action == GLFW_PRESS) 
+		if (_action == GLFW_PRESS)
 		{
 			g_mouseDown = true;
 			glfwGetCursorPos(_window, &g_prevMouseX, &g_prevMouseY);
 		}
-		else if (_action == GLFW_RELEASE) 
+		else if (_action == GLFW_RELEASE)
 		{
 			g_mouseDown = false;
 		}
@@ -422,7 +422,7 @@ void mouseButtonHandler(GLFWwindow* _window, int _button, int _action, int _mods
 
 void mouseScrollHandler(GLFWwindow* _window, double _xoffset, double _yoffset) {
 
-	if (g_mainCamera) 
+	if (g_mainCamera)
 	{
 		if (_yoffset < 0.0)
 			g_mainCamera->scaleRadius(1.1f);
@@ -431,7 +431,7 @@ void mouseScrollHandler(GLFWwindow* _window, double _xoffset, double _yoffset) {
 	}
 }
 
-void mouseEnterHandler(GLFWwindow* _window, int _entered) 
+void mouseEnterHandler(GLFWwindow* _window, int _entered)
 {
 }
 
