@@ -10,86 +10,30 @@ using namespace glm;
 // Packed vertex buffer for cube
 static float positionArray[] = {
 
-		// Front face (red)
-		-1.0f, 1.0f, 1.0f, 1.0f,  // Vertex 0
-		-1.0f, -1.0f, 1.0f, 1.0f, // Vertex 1
-		1.0f, -1.0f, 1.0f, 1.0f,  // Vertex 2
-		1.0f, 1.0f, 1.0f, 1.0f,   // Vertex 3
+	-1.0f, 1.0f, 1.0f, 1.0f,
+	-1.0f, 1.0f, -1.0f, 1.0f,
+	1.0f, 1.0f, -1.0f, 1.0f,
+	1.0f, 1.0f, 1.0f, 1.0f,
 
-		// Back face (green)
-		-1.0f, 1.0f, -1.0f, 1.0f,  // Vertex 4
-		-1.0f, -1.0f, -1.0f, 1.0f, // Vertex 5
-		1.0f, -1.0f, -1.0f, 1.0f,  // Vertex 6
-		1.0f, 1.0f, -1.0f, 1.0f,   // Vertex 7
-
-		// Left face (blue)
-		-1.0f, 1.0f, 1.0f, 1.0f,  // Vertex 0
-		-1.0f, -1.0f, 1.0f, 1.0f, // Vertex 1
-		-1.0f, -1.0f, -1.0f, 1.0f, // Vertex 5
-		-1.0f, 1.0f, -1.0f, 1.0f,  // Vertex 4
-
-		// Right face (yellow)
-		1.0f, 1.0f, 1.0f, 1.0f,   // Vertex 3
-		1.0f, -1.0f, 1.0f, 1.0f,  // Vertex 2
-		1.0f, -1.0f, -1.0f, 1.0f, // Vertex 6
-		1.0f, 1.0f, -1.0f, 1.0f,  // Vertex 7
-
-		// Top face (cyan)
-		-1.0f, 1.0f, 1.0f, 1.0f,   // Vertex 0
-		-1.0f, 1.0f, -1.0f, 1.0f,  // Vertex 4
-		1.0f, 1.0f, -1.0f, 1.0f,   // Vertex 7
-		1.0f, 1.0f, 1.0f, 1.0f,    // Vertex 3
-
-		// Bottom face (magenta)
-		-1.0f, -1.0f, 1.0f, 1.0f,  // Vertex 1
-		-1.0f, -1.0f, -1.0f, 1.0f, // Vertex 5
-		1.0f, -1.0f, -1.0f, 1.0f,  // Vertex 6
-		1.0f, -1.0f, 1.0f, 1.0f    // Vertex 2
-	};
-
-
-
-// Packed colour buffer for principle axes model
-// Modified colourArray with different colors for each face of the cube
-static float colourArray[] = {
-
-	// Front face (Red)
-	1.0f, 0.0f, 0.0f, 1.0f,   // Vertex 0
-	1.0f, 0.0f, 0.0f, 1.0f,   // Vertex 1
-	1.0f, 0.0f, 0.0f, 1.0f,   // Vertex 2
-	1.0f, 0.0f, 0.0f, 1.0f,   // Vertex 3
-
-	// Back face (Green)
-	0.0f, 1.0f, 0.0f, 1.0f,   // Vertex 4
-	0.0f, 1.0f, 0.0f, 1.0f,   // Vertex 5
-	0.0f, 1.0f, 0.0f, 1.0f,   // Vertex 6
-	0.0f, 1.0f, 0.0f, 1.0f,   // Vertex 7
-
-	// Left face (Blue)
-	0.0f, 0.0f, 1.0f, 1.0f,   // Vertex 0
-	0.0f, 0.0f, 1.0f, 1.0f,   // Vertex 4
-	0.0f, 0.0f, 1.0f, 1.0f,   // Vertex 7
-	0.0f, 0.0f, 1.0f, 1.0f,   // Vertex 3
-
-	// Right face (Yellow)
-	1.0f, 1.0f, 0.0f, 1.0f,   // Vertex 1
-	1.0f, 1.0f, 0.0f, 1.0f,   // Vertex 5
-	1.0f, 1.0f, 0.0f, 1.0f,   // Vertex 6
-	1.0f, 1.0f, 0.0f, 1.0f,   // Vertex 2
-
-	// Top face (Cyan)
-	0.0f, 1.0f, 1.0f, 1.0f,   // Vertex 3
-	0.0f, 1.0f, 1.0f, 1.0f,   // Vertex 2
-	0.0f, 1.0f, 1.0f, 1.0f,   // Vertex 6
-	0.0f, 1.0f, 1.0f, 1.0f,   // Vertex 7
-
-	// Bottom face (Magenta)
-	1.0f, 0.0f, 1.0f, 1.0f,   // Vertex 0
-	1.0f, 0.0f, 1.0f, 1.0f,   // Vertex 1
-	1.0f, 0.0f, 1.0f, 1.0f,   // Vertex 5
-	1.0f, 0.0f, 1.0f, 1.0f    // Vertex 4
+	-1.0f, -1.0f, 1.0f, 1.0f,
+	-1.0f, -1.0f, -1.0f, 1.0f,
+	1.0f, -1.0f, -1.0f, 1.0f,
+	1.0f, -1.0f, 1.0f, 1.0f
 };
 
+// Packed colour buffer for principle axes model
+static float colourArray[] = {
+
+	1.0f, 0.0f, 0.0f, 1.0f,
+	1.0f, 0.0f, 1.0f, 1.0f,
+	0.0f, 1.0f, 0.0f, 1.0f,
+	1.0f, 1.0f, 0.0f, 1.0f,
+
+	0.0f, 0.0f, 1.0f, 1.0f,
+	0.0f, 1.0f, 1.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f
+};
 
 
 // Line list topology to render principle axes

@@ -28,9 +28,10 @@ double				g_prevMouseX, g_prevMouseY;
 ArcballCamera* g_mainCamera = nullptr;
 CGPrincipleAxes* g_principleAxes = nullptr;
 Cube* g_cube = nullptr;
-
 GLuint g_flatColourShader;
 
+
+ 
 GLuint g_texDirLightShader;
 vec3 g_DLdirection = vec3(0.0f, 1.0f, 0.0f);
 vec3 g_DLcolour = vec3(1.0f, 1.0f, 1.0f);
@@ -47,10 +48,12 @@ float g_duckRotation = 0.0f;
 
 int g_showing = 0;
 int g_NumExamples = 3;
+int g_currentCamera = 0;
 
 //Global Game Object
 Scene* g_Scene = nullptr;
 
+Camera* g_NumCamera;
 // Window size
 const unsigned int g_initWidth = 512;
 const unsigned int g_initHeight = 512;
@@ -354,7 +357,18 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 		case GLFW_KEY_SPACE:
 			g_showing++;
 			g_showing = g_showing % g_NumExamples;
+			break;
 
+		
+		/**
+		case GLFW_KEY_K:
+			// Cycle through the cameras
+			g_mainCamera++;
+			if (g_mainCamera >=  ) {
+				g_mainCamera = 0;  
+			}
+			*/
+		    
 		default:
 		{
 		}
