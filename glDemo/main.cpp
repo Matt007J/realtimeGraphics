@@ -355,18 +355,12 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 			glfwSetWindowShouldClose(_window, true);
 			break;
 
-		case GLFW_KEY_SPACE:
+		/*case GLFW_KEY_SPACE:
 			g_showing++;
 			g_showing = g_showing % g_NumExamples;
-
-			/**
-case GLFW_KEY_K:
-	// Cycle through the cameras
-	g_mainCamera++;
-	if (g_mainCamera >=  ) {
-		g_mainCamera = 0;
-	}
-	*/
+			break;*/
+		case GLFW_KEY_K:
+			g_Scene->setupCamera();
 
 
 		default:
